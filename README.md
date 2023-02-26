@@ -1,9 +1,9 @@
-<h1 align="center">Hi 👋, I'm Sanved</h1>
-<h3 align="center">A frontend developer from India</h3>
+<h1>Hi, I'm Sanved!</h1>
+<h2>A front-end developer from India</h3>
 
-- 🌱 I’m currently learning **react.js**
+I’m currently learning **react.js**
 
-- Reach me at **bsanved@gmail.com**
+Say hi: **bsanved@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
