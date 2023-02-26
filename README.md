@@ -8,8 +8,8 @@
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://linkedin.com/in/sanved23" target="blank"><img align="center" src="https://icons.getbootstrap.com/assets/icons/linkedin.svg" alt="sanved23" height="30" width="40" /></a>
-<a href="https://instagram.com/sanved.23" target="blank"><img align="center" src="https://icons.getbootstrap.com/assets/icons/linkedin.svg" alt="sanved.23" height="30" width="40" /></a>
-<a href="https://hashnode.com/@uhloofstardust" target="blank"><img align="center" src="https://icons.getbootstrap.com/assets/icons/linkedin.svg" alt="@uhloofstardust" height="30" width="40" /></a>
+<a href="https://instagram.com/sanved.23" target="blank"><img align="center" src="https://icons.getbootstrap.com/assets/icons/instagram.svg" alt="sanved.23" height="30" width="40" /></a>
+<a href="https://hashnode.com/@uhloofstardust" target="blank"><img align="center" src="https://icons.getbootstrap.com/assets/icons/hash.svg" alt="@uhloofstardust" height="30" width="40" /></a>
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
@@ -59,12 +59,12 @@
   <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> 
   </a> 
 
-  <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> 
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> 
-  </a> 
+  <!-- <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> 
+    </a>  -->
 
-  <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> 
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> 
-  </a> 
+  <!-- <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> 
+    </a>  -->
 
 </p>
