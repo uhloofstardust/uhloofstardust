@@ -1,7 +1,6 @@
 <h1>Hi, I'm Sanved!</h1>
-<h2>A front-end developer from India</h3>
+<h2>An aspiring front-end developer from India</h3>
 
-I’m currently learning **react.js**
 
 Say hi: **bsanved@gmail.com**
 
