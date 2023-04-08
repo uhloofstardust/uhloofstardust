@@ -1,5 +1,5 @@
 <h1>Hi, I'm Sanved!</h1>
-<h2>An aspiring front-end developer from India</h3>
+<h2>An aspiring web developer from India</h3>
 
 
 Say hi: **bsanved@gmail.com**
