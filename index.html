@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,10 +8,11 @@
             content="Sanved Bangale — student, builder, reader. M.Tech Data Science & AI at IIT Madras."
         />
         <title>Sanved Bangale</title>
+        <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="styles.css" />
@@ -121,7 +122,18 @@
                 <div class="container hero-layout">
                     <div class="hero-heading">
                         <h1 id="hero-name" class="hero-name">
-                            Sanved<br />Bangale
+                            <span class="hero-word"
+                                ><span class="hero-word-inner"
+                                    >Sanved</span
+                                ></span
+                            >
+                            <span class="hero-word"
+                                ><span
+                                    class="hero-word-inner"
+                                    style="animation-delay: 0.14s"
+                                    >Bangale</span
+                                ></span
+                            >
                         </h1>
                         <figure class="profile-frame">
                             <img
@@ -131,8 +143,10 @@
                             />
                         </figure>
                     </div>
+                    <div class="hero-rule" aria-hidden="true"></div>
                     <p class="hero-role">
-                        student &middot; builder &middot; reader
+                        student <span class="hero-dot">&middot;</span> builder
+                        <span class="hero-dot">&middot;</span> reader
                     </p>
                     <p class="hero-bio">
                         Interested in machine learning, AI systems,
@@ -174,6 +188,12 @@
                     <div class="shelf-block">
                         <p class="shelf-label">Random Likes</p>
                         <div class="books-row" id="fav-books">
+                            <!-- rendered by script.js -->
+                        </div>
+                    </div>
+                    <div class="shelf-block">
+                        <p class="shelf-label">Liked Anime</p>
+                        <div class="books-row" id="anime-shelf">
                             <!-- rendered by script.js -->
                         </div>
                     </div>
@@ -240,6 +260,7 @@
 
         <script src="assets/work.js"></script>
         <script src="assets/books/books.js"></script>
+        <script src="assets/anime/anime.js"></script>
         <script src="assets/postcards/manifest.js"></script>
         <script src="script.js"></script>
     </body>

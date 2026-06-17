@@ -10,14 +10,10 @@
  */
 window.WORK_DATA = [
   {
-    title: "Master's Thesis Work: Learning to Rank under Context Effects",
+    title: "Master's Thesis Work",
     org: "IIT Madras",
-    desc: "Ongoing work under <a href='https://wsai.iitm.ac.in/faculty/suryanarayana-sankagiri/' style='text-decoration: underline; color:wheat'>Dr. Suryanarayana Sankagiri</a>, Wadhwani School of Data Science and Artificial Intelligence towards the completion of my Master's thesis.",
-    tags: [
-      "<a href='https://en.wikipedia.org/wiki/Learning_to_rank' style='text-decoration: underline; color:wheat'>Learning to Rank</a>",
-      "Context Effects",
-      "Research Work",
-    ],
+    desc: "Ongoing work under <a href='https://wsai.iitm.ac.in/faculty/suryanarayana-sankagiri/' >Dr. Suryanarayana Sankagiri</a>, Wadhwani School of Data Science and Artificial Intelligence towards the completion of my Master's thesis.",
+    tags: ["Thesis", "Research Work"],
     link: null,
   },
   {
@@ -35,7 +31,7 @@ window.WORK_DATA = [
   {
     title: "Competency Tagging Research",
     org: "IIT Madras",
-    desc: "Ongoing work under Dr. Shabana K M, Wadhwani School of Data Science and Artificial Intelligence. Exploring retrieval-based methods and LLM-assisted tagging for education technology. Research on automatic competency identification across CBSE course curricula.",
+    desc: "Ongoing work under <a href='https://shabanakm.github.io/'>Dr. Shabana K M</a>, Wadhwani School of Data Science and Artificial Intelligence. Exploring retrieval-based methods and LLM-assisted tagging for education technology. Research on automatic competency identification across CBSE course curricula.",
     tags: ["EdTech", "LLM", "Research"],
     link: null,
   },

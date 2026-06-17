@@ -43,9 +43,21 @@ window.BOOKS_DATA = {
       link: null,
     },
     {
-      title: "1Q84",
+      title: "A Wild Sheep Chase",
       author: "Haruki Murakami",
-      image: "1q84.jpg",
+      image: "wildsheepchase.jpg",
+      link: null,
+    },
+    {
+      title: "The Master and Margarita",
+      author: "Mikhail Bulgakov",
+      image: "master_margarita.png",
+      link: null,
+    },
+    {
+      title: "চার অধ্যায়",
+      author: "Rabindranath Thakur",
+      image: "4chap.png",
       link: null,
     },
   ],

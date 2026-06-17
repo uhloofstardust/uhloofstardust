@@ -7,12 +7,28 @@
    Work, books, and postcards live in assets/ as data files/images.
    ─────────────────────────────────────────────── */
 
-const now = {
-  studying: "Master's at IIT Madras, Data Science and AI",
-  role: "DSAI Placement Core, IIT Madras",
-  work: "Interning at Bajaj Auto, Data Science Intern",
-  reading: "The Remains of the Day, Kazuo Ishiguro",
-};
+const now = [
+  {
+    key: "studying",
+    value: "Master's at IIT Madras, Data Science and AI",
+    link: null,
+  },
+  {
+    key: "role",
+    value: "DSAI Placement Core, IIT Madras",
+    link: "https://placement.iitm.ac.in/ourteam",
+  },
+  {
+    key: "work",
+    value: "Interning at Bajaj Auto, Data Science Intern",
+    link: null,
+  },
+  {
+    key: "reading",
+    value: "The Remains of the Day, Kazuo Ishiguro",
+    link: null,
+  },
+];
 
 const contact = [
   {
@@ -34,6 +50,11 @@ const contact = [
     label: "iitm",
     text: "da25m027@smail.iitm.ac.in",
     href: "mailto:da25m027@smail.iitm.ac.in",
+  },
+  {
+    label: "iitm (placement)",
+    text: "damtcouncillor@smail.iitm.ac.in",
+    href: "mailto:damtcouncillor@smail.iitm.ac.in",
   },
 ];
 
@@ -80,19 +101,14 @@ function renderNow() {
   const el = document.getElementById("now-list");
   if (!el) return;
 
-  const labels = {
-    studying: "studying",
-    role: "role",
-    work: "work",
-    reading: "reading",
-  };
-
-  el.innerHTML = Object.entries(now)
+  el.innerHTML = now
     .map(
-      ([k, v]) => `
+      ({ key, value, link }) => `
     <div class="now-item">
-      <dt class="now-key">${labels[k] || k}</dt>
-      <dd class="now-value">${v}</dd>
+      <dt class="now-key">${key}</dt>
+      <dd class="now-value">
+        ${link ? `<a class="now-link" href="${link}" target="_blank" rel="noopener noreferrer">${value}<span aria-hidden="true">↗</span></a>` : value}
+      </dd>
     </div>
   `,
     )
@@ -110,26 +126,21 @@ function renderWork() {
     .map(
       (item) => `
     <article class="work-card">
-      <div class="work-card-header">
-        <h3 class="work-card-title">
-          ${
-            item.link
-              ? `
-            <a
-              class="work-card-link"
-              href="${item.link}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >${item.title}<span aria-hidden="true">↗</span></a>
-          `
-              : item.title
-          }
-        </h3>
-        <span class="work-card-org">${item.org}</span>
-      </div>
-      <p class="work-card-desc">${item.desc}</p>
-      <div class="work-card-tags" aria-label="Technologies">
-        ${(item.tags || []).map((t) => `<span class="tag">${t}</span>`).join("")}
+      <div class="work-card-inner">
+        <div class="work-card-header">
+          <h3 class="work-card-title">
+            ${
+              item.link
+                ? `<a class="work-card-link" href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}<span aria-hidden="true">↗</span></a>`
+                : item.title
+            }
+          </h3>
+          <span class="work-card-org">${item.org}</span>
+        </div>
+        <p class="work-card-desc">${item.desc}</p>
+        <div class="work-card-tags" aria-label="Technologies">
+          ${(item.tags || []).map((t) => `<span class="tag">${t}</span>`).join("")}
+        </div>
       </div>
     </article>
   `,
@@ -177,6 +188,38 @@ function renderShelf(id, books, offset) {
   const el = document.getElementById(id);
   if (!el) return;
   el.innerHTML = books.map((b, i) => bookCardHTML(b, i, offset)).join("");
+}
+
+/* ── RENDER: ANIME — reads window.ANIME_DATA (assets/anime/anime.js) */
+function renderAnime() {
+  const el = document.getElementById("anime-shelf");
+  if (!el) return;
+  const list = window.ANIME_DATA || [];
+  el.innerHTML = list
+    .map((item, i) => {
+      if (item.image) {
+        return `
+        <div class="book-card book-card--img"
+             style="background-image:url('assets/anime/${item.image}')"
+             title="${item.studio}">
+          ${item.link ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer">` : ""}
+          <div class="book-inner">
+            <div class="book-title">${item.title}</div>
+            <div class="book-author">${item.studio}</div>
+          </div>
+          ${item.link ? `</a>` : ""}
+        </div>`;
+      }
+      const { bg, text } = bookPalette(i);
+      return `
+      <div class="book-card" style="background:${bg};color:${text}" title="${item.studio}">
+        <div class="book-inner">
+          <div class="book-title">${item.title}</div>
+          <div class="book-author">${item.studio}</div>
+        </div>
+      </div>`;
+    })
+    .join("");
 }
 
 /* ── RENDER: POSTCARDS — reads window.POSTCARDS (assets/postcards/manifest.js) */
@@ -298,13 +341,14 @@ function renderContact() {
     ? "dark"
     : "light";
 
-  root.setAttribute("data-theme", saved || prefers);
+  root.setAttribute("data-theme", saved || "dark");
 
   btn?.addEventListener("click", () => {
     const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
     localStorage.setItem("sb-theme", next);
     renderBooks(); // re-render to swap book card colours
+    renderAnime();
   });
 })();
 
@@ -386,27 +430,27 @@ function renderContact() {
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
 
-  const COUNT = 28;
+  const COUNT = 14;
   let W,
     H,
     petals = [],
     raf;
 
   const LIGHT_PAL = [
-    "#f2b8cb",
-    "#e8a0b8",
-    "#f5c6d6",
-    "#fad2e2",
-    "#edd0da",
-    "#e8b4c8",
+    "#d0b8f0",
+    "#e8b0d8",
+    "#c8b8f4",
+    "#f0c0e0",
+    "#b8c8f0",
+    "#e0b8f0",
   ];
   const DARK_PAL = [
-    "#8a3a5a",
-    "#a04870",
-    "#6e2e4a",
-    "#8c4060",
-    "#7a3450",
-    "#944466",
+    "#90d0f0",
+    "#b0c8f8",
+    "#f0b8d8",
+    "#c8b0f0",
+    "#a0d8f4",
+    "#f0c0e0",
   ];
 
   function pal() {
@@ -450,14 +494,14 @@ function renderContact() {
     return {
       x: scatter ? rnd(0, W) : rnd(-20, W + 20),
       y: scatter ? rnd(-20, H) : rnd(-80, -20),
-      r: rnd(4.5, 9),
+      r: rnd(5.5, 11),
       rot: rnd(0, Math.PI * 2),
-      rotV: rnd(-0.024, 0.024),
-      vx: rnd(-0.4, 0.4),
-      vy: rnd(0.35, 0.82),
+      rotV: rnd(-0.014, 0.014),
+      vx: rnd(-0.25, 0.25),
+      vy: rnd(0.22, 0.55),
       swing: rnd(0, Math.PI * 2),
-      swingSpeed: rnd(0.007, 0.016),
-      alpha: rnd(0.4, 0.82),
+      swingSpeed: rnd(0.005, 0.012),
+      alpha: rnd(0.28, 0.58),
       color: p[Math.floor(Math.random() * p.length)],
     };
   }
@@ -504,4 +548,5 @@ renderNow();
 renderWork();
 renderContact();
 renderBooks();
+renderAnime();
 renderPostcards();
